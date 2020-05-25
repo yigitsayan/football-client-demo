@@ -27,7 +27,12 @@ const TeamList = props => {
   return (
     <List component="ul" className={styles.listContainer}>
       {props.teams.map(team => (
-        <ListItem key={team.id} className={styles.listItem}>
+        <ListItem
+          onMouseEnter={e => props.onMouseEnter(e, team.id)}
+          onMouseLeave={props.onMouseLeave}
+          key={team.id}
+          className={styles.listItem}
+        >
           <div className={styles.teamName}>{team.name}</div>
           <img className={styles.teamLogo} alt="teamLogo" src={team.crestUrl} />
         </ListItem>
